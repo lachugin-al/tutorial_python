@@ -1,0 +1,25 @@
+Сортировка
+По умолчанию порядок выдачи строк в результате не определен. Для потенциальной стабилизации этого порядка можно указать секцию order by, в которой перечисляются колонки и/или выражения, для которых следует провести сортировку. Сортировка выполняется сначала по первой колонке/выражению, а при равных значениях - по второй и т.п.
+Если значения в колонках в order by повторяются для всех колонок, то порядок строк в пределах равных значений остается неопределенным.
+При этом доступны только колонки, указанные в проекции (после select), а не колонки в таблице, указанной в секции from.
+Для каждой колонки и/или выражения можно указать сортировать по возрастанию (asc) или убыванию (desc).
+Пример
+use hahn;
+select region, name, age, ip from `home/yql/tutorial/users` order by region, name;
+
+Для ускорения сортировки часто добавляют секцию limit вместе с order by.
+Пример
+use hahn;
+select name, age, ip from `home/yql/tutorial/users` order by age desc limit 3;
+
+При наличии в запросе одновременно и секции group by и order by они должны быть именно в таком порядке.
+Пример
+use hahn;
+select region, Geo::RegionById(cast(region as Int32)).name as region_name, count(*) as count
+from `home/yql/tutorial/users`
+group by region
+order by region_name;
+
+Напиши запрос, выдающий те 4 строки для таблицы home/yql/tutorial/users на кластере hahn, в которых длина строки в колонке user_agent имеет самые большие значения.
+use hahn;
+select * from `home/yql/tutorial/users` order by length(user_agent) desc limit 4;

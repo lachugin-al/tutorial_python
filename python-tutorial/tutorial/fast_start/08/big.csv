@@ -1,0 +1,8 @@
+date,Product,Price,Name,City,Country
+2021-10-11,Product1,120,Carolina,Parkville,USA
+2021-10-21,Product1,120,Carolina,Moscow,Russia
+2021-09-11,Product2,120,Anton,Parkville,USA
+2021-10-10,Product1,"120",Carolina,Moscow   ,Russia
+2021-08-21,Product1,120,Anna,Parkville,USA
+2021-07-11,Product2,120,Carolina,Saint Petersburg,Russia
+2021-11-11,Product1,120,Nastya,Irvine,USA

@@ -1,0 +1,9 @@
+{
+    "NumberKey": 1,
+    "Float": 1.0,
+    "String": "hello",
+    "List": ["Element", 1],
+    "Dict": {
+        "Key": "Value"
+    }
+}
